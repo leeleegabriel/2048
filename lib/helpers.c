@@ -58,7 +58,7 @@ void shiftLeft(int disp[LENGTH][WIDTH], int* score) {
 					l = c; 
 				} else {
 					disp[y][l] = disp[y][l]*2;
-					*score = disp[y][l];
+					*score += disp[y][l];
 					disp[y][c] = 0; 
 					l = -1;
 				}
@@ -90,7 +90,7 @@ void shiftRight(int disp[LENGTH][WIDTH], int* score) {
 					r = c; 
 				} else {
 					disp[y][r] = disp[y][r]*2;
-					*score = disp[y][r];
+					*score += disp[y][r];
 					disp[y][c] = 0; 
 					r = -1;
 				}

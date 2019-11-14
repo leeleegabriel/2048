@@ -5,7 +5,6 @@
 #include <math.h>
 #define LENGTH 5
 #define WIDTH 5
-#define number_of_paths 1000
 
 void getInput(char*);
 void clear(int[LENGTH][WIDTH]);

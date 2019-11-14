@@ -6,34 +6,34 @@
 #include <math.h>
 #include "./lib/helpers.h"
 
+#define number_of_paths 100
+
 char getBestMove(int[LENGTH][WIDTH], int);
 
 int main() {
 	int disp[LENGTH][WIDTH] = {{0}};
 	int score = 0;
-	char input;
-	int test;
+	int input;
+	int prev_score = 0;
 
 	srand(time(0));
 
-	clear(disp);
-	printf("Use WASD as arrows to shift, q to quit : ) \n\n");
-	display(disp);
-	getInput(&input);
-	clear(disp);
+	//display(disp);
+	input = getBestMove(disp, score);
 
 	while(input != 'q'){
+		prev_score = score;
 		switch(input){
-			case 'a':
+			case 0:
 				shiftLeft(disp, &score);
 				break;
-			case 'd':
+			case 1:
 				shiftRight(disp, &score);
 				break;
-			case 'w':
+			case 2:
 				shiftUp(disp, &score);
 				break;
-			case 's':
+			case 3:
 				shiftDown(disp, &score);
 				break;
 			default:
@@ -41,19 +41,17 @@ int main() {
 				break;
 		}
 		addValues(disp, &score);
-		test = getBestMove(disp, score);
-		printf("Best Move: %d\n", test);
-		printf("Score: %d\n", score);
-		display(disp);
-		getInput(&input);
-		clear(disp);
+		if(score == 0 && prev_score != 0) {
+			printf("%d\n", prev_score);
+		}
+		input = getBestMove(disp, score);
+		//clear(disp);
 	}
 }
 
 
 // AI
 char getBestMove(int disp[LENGTH][WIDTH], int score) {
-
 	int scores[4][number_of_paths] = {{score}};
 	int disp_test[LENGTH][WIDTH];
 	int first_move_score;
@@ -138,4 +136,3 @@ char getBestMove(int disp[LENGTH][WIDTH], int score) {
 	}
 	return max_index;
 }
-
