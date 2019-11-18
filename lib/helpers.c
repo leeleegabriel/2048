@@ -42,7 +42,7 @@ void addValues(int disp[LENGTH][WIDTH], int* score) {
 void getInput(char* ptr) {
 	printf("Enter a value: ");
 	scanf(" %c", ptr);
-	fflush(stdin);
+	// fflush(stdin);
 }
 
 void shiftLeft(int disp[LENGTH][WIDTH], int* score) {

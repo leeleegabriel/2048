@@ -3,8 +3,7 @@
 #include <string.h>
 #include <time.h> 
 #include <math.h>
-#define LENGTH 5
-#define WIDTH 5
+#include "config.h"
 
 void getInput(char*);
 void clear(int[LENGTH][WIDTH]);

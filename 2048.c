@@ -5,6 +5,7 @@
 #include <time.h> 
 #include <math.h>
 #include "./lib/helpers.h"
+#include "./lib/config.h"
 
 int main() {
 	int disp[LENGTH][WIDTH] = {{0}};
